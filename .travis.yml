@@ -1,5 +1,5 @@
 language: java
-	addons:
+addons:
   sonarcloud:
     organization: "dagoull-github"
     token:
