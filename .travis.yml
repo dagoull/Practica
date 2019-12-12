@@ -1,16 +1,10 @@
 language: java
-sudo: false
-install: true
-addons:
-  sonarqube:
-    organization: "dcastell"
+	addons:
+  sonarcloud:
+    organization: "dagoull-github"
     token:
-      secure: "760ffa5044f9ea9dfeec724b948246b6216482ce"
-jdk:
-  - oraclejdk8
+      secure: "760ffa5044f9ea9dfeec724b948246b6216482ce" # encrypted value of your token
+
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
-cache:
-  directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.sonar/cache'
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=dagoull_Practica
